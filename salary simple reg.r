@@ -1,0 +1,18 @@
+sd <- Salary_Data
+plot(sd$YearsExperience,sd$Salary)
+summary(sd)
+cor(sd$YearsExperience,sd$Salary)
+reg <- lm(sd$Salary~sd$YearsExperience)
+summary(reg)
+confint(reg,level=0.95)
+predict(reg,interval="predict")
+pred <- predict(reg)
+pred
+predict(reg,newdata = data.frame(sd$Salary= 3.8))
+attach(sd)
+reg.log <- lm(log(Salary)~YearsExperience)
+summary(reg.log)
+reg.log <- lm(log(Salary)~log(YearsExperience))
+summary(reg.log)
+confint(reg.log)
+predict(reg.log,interval="predict")
